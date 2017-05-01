@@ -1,0 +1,12 @@
+c:\users\andrew\documents\visual studio 2013\Projects\Sierpinski_Triangle\Sierpinski_Triangle\bin\Debug\Sierpinski_Triangle.exe.config
+c:\users\andrew\documents\visual studio 2013\Projects\Sierpinski_Triangle\Sierpinski_Triangle\bin\Debug\Sierpinski_Triangle.exe
+c:\users\andrew\documents\visual studio 2013\Projects\Sierpinski_Triangle\Sierpinski_Triangle\bin\Debug\Sierpinski_Triangle.pdb
+c:\users\andrew\documents\visual studio 2013\Projects\Sierpinski_Triangle\Sierpinski_Triangle\obj\Debug\Sierpinski_Triangle.Form1.resources
+c:\users\andrew\documents\visual studio 2013\Projects\Sierpinski_Triangle\Sierpinski_Triangle\obj\Debug\Sierpinski_Triangle.Properties.Resources.resources
+c:\users\andrew\documents\visual studio 2013\Projects\Sierpinski_Triangle\Sierpinski_Triangle\obj\Debug\Sierpinski_Triangle.csproj.GenerateResource.Cache
+c:\users\andrew\documents\visual studio 2013\Projects\Sierpinski_Triangle\Sierpinski_Triangle\obj\Debug\Sierpinski_Triangle.exe
+c:\users\andrew\documents\visual studio 2013\Projects\Sierpinski_Triangle\Sierpinski_Triangle\obj\Debug\Sierpinski_Triangle.pdb
+C:\Users\Andrew\Documents\Visual Studio 2013\Projects\Sierpinski_Triangle\Sierpinski_Triangle\obj\Debug\Sierpinski_Triangle.csprojResolveAssemblyReference.cache
+C:\Users\Andrew\Documents\Visual Studio 2013\Projects\prj3\Sierpinski_Triangle\bin\Debug\Sierpinski_Triangle.exe.config
+C:\Users\Andrew\Documents\Visual Studio 2013\Projects\prj3\Sierpinski_Triangle\obj\Debug\Sierpinski_Triangle.exe
+C:\Users\Andrew\Documents\Visual Studio 2013\Projects\prj3\Sierpinski_Triangle\obj\Debug\Sierpinski_Triangle.pdb
