@@ -1,0 +1,12 @@
+c:\users\andrew\documents\visual studio 2013\Projects\Tromino_Csharp\Tromino_Csharp\bin\Debug\Tromino_Csharp.exe.config
+c:\users\andrew\documents\visual studio 2013\Projects\Tromino_Csharp\Tromino_Csharp\bin\Debug\Tromino_Csharp.exe
+c:\users\andrew\documents\visual studio 2013\Projects\Tromino_Csharp\Tromino_Csharp\bin\Debug\Tromino_Csharp.pdb
+c:\users\andrew\documents\visual studio 2013\Projects\Tromino_Csharp\Tromino_Csharp\obj\Debug\Tromino_Csharp.csprojResolveAssemblyReference.cache
+c:\users\andrew\documents\visual studio 2013\Projects\Tromino_Csharp\Tromino_Csharp\obj\Debug\Tromino_Csharp.exe
+c:\users\andrew\documents\visual studio 2013\Projects\Tromino_Csharp\Tromino_Csharp\obj\Debug\Tromino_Csharp.pdb
+C:\Users\Andrew\Documents\Visual Studio 2013\Projects\Algorithms.472.Tromino.Console.C#\Tromino_Csharp\bin\Debug\Tromino_Csharp.exe.config
+C:\Users\Andrew\Documents\Visual Studio 2013\Projects\Algorithms.472.Tromino.Console.C#\Tromino_Csharp\obj\Debug\Tromino_Csharp.exe
+C:\Users\Andrew\Documents\Visual Studio 2013\Projects\Algorithms.472.Tromino.Console.C#\Tromino_Csharp\obj\Debug\Tromino_Csharp.pdb
+C:\Users\Andrew\Documents\Visual Studio 2013\Projects\Algorithms.472.Tromino.Console.C#\Tromino_Csharp\bin\Debug\Tromino_Csharp.exe
+C:\Users\Andrew\Documents\Visual Studio 2013\Projects\Algorithms.472.Tromino.Console.C#\Tromino_Csharp\bin\Debug\Tromino_Csharp.pdb
+C:\Users\Andrew\Documents\Visual Studio 2013\Projects\Algorithms.472.Tromino.Console.C#\Tromino_Csharp\obj\Debug\Tromino_Csharp.csprojResolveAssemblyReference.cache
