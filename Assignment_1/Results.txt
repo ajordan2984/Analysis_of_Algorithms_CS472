@@ -1,0 +1,88 @@
+Entering Adjacency Matrix Graph DFS
+Visiting:0
+Already visited:0
+Visiting:6
+Already visited:6
+Visiting:2
+Visiting:7
+Visiting:1
+Visiting:3
+Already visited:2
+Visiting:5
+Already visited:2
+Already visited:5
+Visiting:4
+Already visited:4
+Visiting:1
+Already visited:3
+Finished.
+
+Entering Adjacency Matrix Graph BFS
+Visiting:0
+0 has already been visited.
+0 has no more edges.
+Visiting:1
+1 has no more edges.
+Visiting:2
+2 has no more edges.
+Visiting:6
+6 has already been visited.
+6 has no more edges.
+Visiting:3
+2 has already been visited.
+3 has no more edges.
+Visiting:4
+4 has already been visited.
+4 has no more edges.
+Visiting:5
+2 has already been visited.
+5 has already been visited.
+5 has no more edges.
+Visiting:7
+1 has already been visited.
+7 has no more edges.
+Finished.
+
+Entering Adjacency Matrix Graph DFS
+Visiting:0
+Visiting:6
+Already visited:6
+Visiting:2
+Visiting:7
+Visiting:1
+Visiting:3
+Already visited:2
+Visiting:5
+Already visited:5
+Already visited:2
+Visiting:4
+Already visited:4
+Visiting:1
+Already visited:3
+Finished.
+
+Entering Adjacency List Graph BFS
+Visiting:0
+0 has no more edges.
+Visiting:1
+1 has no more edges.
+Visiting:2
+2 has no more edges.
+Visiting:6
+6 has already been visited.
+6 has no more edges.
+Visiting:3
+2 has already been visited.
+3 has no more edges.
+Visiting:4
+4 has already been visited.
+4 has no more edges.
+Visiting:5
+5 has already been visited.
+2 has already been visited.
+5 has no more edges.
+Visiting:7
+1 has already been visited.
+7 has no more edges.
+Finished.
+
