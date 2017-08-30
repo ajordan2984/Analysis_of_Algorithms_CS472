@@ -1,0 +1,33 @@
+<?php 
+    SayTime("00:00");
+    SayTime("01:30");
+    SayTime("12:05");
+    SayTime("14:01");
+    SayTime("20:29");
+    SayTime("21:00");
+    function SayTime($time)
+    {
+	 $time = date("g:i a", strtotime($time));
+	 $parts = explode(':', $time);
+	 list($hour,$minute_string) = $parts;
+	 $parts = explode(' ',$minute_string);
+	 list($minute,$day) = $parts;
+	
+	$f = new NumberFormatter('en',NumberFormatter::SPELLOUT);
+	if ($minute == '00')
+		echo "It's ",$f->format($hour)," ",$day,"<br>";
+	if ($minute > 0 && $minute < 10)
+		echo "It's ",$f->format($hour)," oh ",$f->format($minute)," ",$day,"<br>";
+	if ($minute > 10)
+		echo "It's ",$f->format($hour)," ",$f->format($minute)," ",$day,"<br>";			
+    }
+?>
+
+Output:
+    
+    It's twelve am
+    It's one thirty am
+    It's twelve oh five pm
+    It's two oh one pm
+    It's eight twenty-nine pm
+    It's nine pm
