@@ -3,17 +3,29 @@
 template <typename A>
 SampleTree<A>::SampleTree()
 {
+	/// Set pointers to null default
 	leftchild = nullptr;
 	rightchild = nullptr;
 	root = nullptr;
+	/// Set printer function pointer
+	PrintNodePointer = std::bind(&SampleTree<A>::PrintNode, this, _1);
 }
 
-// Overloaded Copy Constructor
+/// Overloaded Copy Constructor
 template <typename A>
 SampleTree<A>::SampleTree(SampleTree<A> *TreeBeingCopied)
 {
-	using namespace std::placeholders;
-	std::function<void(A)> InsertTreePointer = std::bind(&SampleTree<A>::InsertTree, this, _1);
+	/// Set pointers to null default
+	leftchild = nullptr;
+	rightchild = nullptr;
+	root = nullptr;
+	
+	/// Set function pointers to correct functions
+	/// Type: std::function<void(A)> -> std::function<RETURN TYPE (FUNCTION ARGUMENTS TYPE)> variable_name 
+	/// Bind: variable_name = std::bind(CLASS REFERENCE::CLASS FUNCTION, this, PLACE HOLDER FOR FUNCTION ARGUMENTS SEPARATED BY COMMAS);
+	/// Example if PrintNode needed 3 arguments: PrintNodePointer = std::bind(&SampleTree<A>::PrintNode, this, _1,_2,_3);
+	PrintNodePointer = std::bind(&SampleTree<A>::PrintNode, this, _1);
+	InsertTreePointer = std::bind(&SampleTree<A>::InsertTree, this, _1);
 	PreOrderHelper(TreeBeingCopied->root, InsertTreePointer);
 }
 
@@ -61,6 +73,36 @@ void SampleTree<A>::InsertTree(A key)
 }// end insert()
 
 template <typename A>
+void SampleTree<A>::DeleteNode(A key)
+{
+	DeleteNodeHelper(root, root, 2, key);
+}
+
+template<typename A>
+void SampleTree<A>::InOrder()
+{
+	//std::function<void(A)> PrintNodePointer = std::bind(&SampleTree<A>::PrintNode, this, _1);
+	//std::function<void(SampleTree<A>*)> PrintNodePointer = &SampleTree<A>::PrintNode;
+	InOrderHelper(root, PrintNodePointer);
+}
+
+template<typename A>
+void SampleTree<A>::PreOrder()
+{
+	//std::function<void(A)> PrintNodePointer = std::bind(&SampleTree<A>::PrintNode, this, _1);
+	PreOrderHelper(root, PrintNodePointer);
+}
+
+template<typename A>
+void SampleTree<A>::PostOrder()
+{
+	//std::function<void(A)> PrintNodePointer = std::bind(&SampleTree<A>::PrintNode, this, _1);
+	PostOrderHelper(root, PrintNodePointer);
+}
+
+/// Private Helper Functions Defined
+
+template <typename A>
 SampleTree<A>* SampleTree<A>::MyNewNode(A val)
 {
 	SampleTree<A> *tp = new SampleTree<A>;
@@ -70,30 +112,6 @@ SampleTree<A>* SampleTree<A>::MyNewNode(A val)
 	tp->leftchild = nullptr;
 	return tp;
 }
-
-template <typename A>
-void SampleTree<A>::DeleteNode(A key)
-{
-	DeleteNodeHelper(root, root, 2, key);
-}
-
-template<typename A>
-void SampleTree<A>::InOrder()
-{
-	using namespace std::placeholders;
-	std::function<void(A)> PrintNodePointer = std::bind(&SampleTree<A>::PrintNode, this, _1);
-	//std::function<void(SampleTree<A>*)> PrintNodePointer = &SampleTree<A>::PrintNode;
-	InOrderHelper(root, PrintNodePointer);
-}
-
-template<typename A>
-void SampleTree<A>::PreOrder()
-{
-	std::function<void(SampleTree<A>*)> PrintNodePointer = &SampleTree<A>::PrintNode;
-	PreOrderHelper(root, PrintNodePointer);
-}
-
-// Private Helper Functions Defined
 
 template<typename A>
 void SampleTree<A>::DeleteNodeHelper(SampleTree<A> *current, SampleTree<A> *trail, int branch, A key)
@@ -191,6 +209,20 @@ void SampleTree<A>::PreOrderHelper(SampleTree<A> *node, std::function<void(A)> f
 		fptr(node->val);
 		PreOrderHelper(node->leftchild, fptr);
 		PreOrderHelper(node->rightchild, fptr);
+		return;
+	}
+}
+
+template<typename A>
+void SampleTree<A>::PostOrderHelper(SampleTree<A> *node, std::function<void(A)> fptr)
+{
+	if (node == NULL)
+		return;
+	else
+	{
+		PreOrderHelper(node->leftchild, fptr);
+		PreOrderHelper(node->rightchild, fptr);
+		fptr(node->val);
 		return;
 	}
 }
