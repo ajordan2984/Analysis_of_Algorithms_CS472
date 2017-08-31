@@ -81,22 +81,18 @@ void SampleTree<A>::DeleteNode(A key)
 template<typename A>
 void SampleTree<A>::InOrder()
 {
-	//std::function<void(A)> PrintNodePointer = std::bind(&SampleTree<A>::PrintNode, this, _1);
-	//std::function<void(SampleTree<A>*)> PrintNodePointer = &SampleTree<A>::PrintNode;
 	InOrderHelper(root, PrintNodePointer);
 }
 
 template<typename A>
 void SampleTree<A>::PreOrder()
 {
-	//std::function<void(A)> PrintNodePointer = std::bind(&SampleTree<A>::PrintNode, this, _1);
 	PreOrderHelper(root, PrintNodePointer);
 }
 
 template<typename A>
 void SampleTree<A>::PostOrder()
 {
-	//std::function<void(A)> PrintNodePointer = std::bind(&SampleTree<A>::PrintNode, this, _1);
 	PostOrderHelper(root, PrintNodePointer);
 }
 
