@@ -3,11 +3,11 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
-#include "SampleTree.cpp"
+#include "Tree.cpp"
 using namespace std;
 
 template <typename A>
-void readinvalues(SampleTree<A>*);
+void readinvalues(Tree<A>*);
 //globals
 ifstream in;
 
@@ -15,18 +15,21 @@ ifstream in;
 int main()
 {
 	in.open("dat.txt");
-	SampleTree<string> *FirstTreePtr = new SampleTree<string>();
+	Tree<string> *FirstTreePtr = new Tree<string>();
 	readinvalues(FirstTreePtr);
 	FirstTreePtr->InOrder();
-	SampleTree<string> *NewTreePtr = new SampleTree<string>(FirstTreePtr);
-	NewTreePtr->InOrder();
+	FirstTreePtr->DeleteNode("to");
+	//Tree<string> *NewTreePtr = new Tree<string>(FirstTreePtr);
+	//NewTreePtr->InOrder();
+	FirstTreePtr->DeleteTree();
+	//NewTreePtr->DeleteTree();
 	in.close();
 	cout << "Finished." << endl;
 	return 0;
 }
 
 template <typename A>
-void readinvalues(SampleTree<A> *tree)
+void readinvalues(Tree<A> *tree)
 {
 	int count = 0, sz = 0;
 	string s1;
@@ -41,7 +44,7 @@ void readinvalues(SampleTree<A> *tree)
 		}
 
 		if (temp.length() > 0 && temp != "")
-			tree->InsertTree(temp);
+			tree->Insert(temp);
 		temp = "";
 	}
 	return;
