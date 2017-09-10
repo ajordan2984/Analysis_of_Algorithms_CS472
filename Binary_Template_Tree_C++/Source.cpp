@@ -18,11 +18,15 @@ int main()
 	Tree<string> *FirstTreePtr = new Tree<string>();
 	readinvalues(FirstTreePtr);
 	FirstTreePtr->InOrder();
-	FirstTreePtr->DeleteNode("to");
-	//Tree<string> *NewTreePtr = new Tree<string>(FirstTreePtr);
-	//NewTreePtr->InOrder();
+	FirstTreePtr->DeleteNode("noted");
+	
+	// Create new tree and copy old tree into it
+	Tree<string> *NewTreePtr = new Tree<string>(FirstTreePtr);
+	NewTreePtr->InOrder();
+	
+	// Delete Trees
 	FirstTreePtr->DeleteTree();
-	//NewTreePtr->DeleteTree();
+	NewTreePtr->DeleteTree();
 	in.close();
 	cout << "Finished." << endl;
 	return 0;
