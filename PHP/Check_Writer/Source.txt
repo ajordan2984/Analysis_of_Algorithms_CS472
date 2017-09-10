@@ -1,0 +1,38 @@
+ <$php
+    WriteCheck(33.88);
+    WriteCheck(724388.15);
+    WriteCheck(919616.12);
+    WriteCheck(12.11);
+    WriteCheck(2.0);
+    WriteCheck(1999999.00);
+    WriteCheck(3999888777.23);
+
+
+function WriteCheck($money)
+{
+ $f = new NumberFormatter('en',NumberFormatter::SPELLOUT);
+ $parts = explode('.',$money);
+ list($dollars,$cents) = $parts;
+
+ if ($cents != NULL || $cents != 0)
+    echo CC($f->format($dollars))," dollars and ",$f->format($cents)," cents.","<br>";
+ else
+    echo CC($f->format($dollars))," dollars and zero cents.","<br>";
+}
+
+function CC($money)
+{
+  $money = str_replace('sand','sand,',$money); 
+  $money = str_replace('lion','lion,',$money);
+  return $money;
+}
+?>
+
+Output:
+thirty-three dollars and eighty-eight cents.
+seven hundred twenty-four thousand, three hundred eighty-eight dollars and fifteen cents.
+nine hundred nineteen thousand, six hundred sixteen dollars and twelve cents.
+twelve dollars and eleven cents.
+two dollars and zero cents.
+one million, nine hundred ninety-nine thousand, nine hundred ninety-nine dollars and zero cents.
+three billion, nine hundred ninety-nine million, eight hundred eighty-eight thousand, seven hundred seventy-seven dollars and twenty-three cents.
