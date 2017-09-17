@@ -4,6 +4,7 @@ template <typename A>
 Tree<A>::Tree()
 {
 	count = 0;
+	level = 0;
 	/// Set pointers to null default
 	leftchild = nullptr;
 	rightchild = nullptr;
@@ -20,6 +21,7 @@ template <typename A>
 Tree<A>::Tree(Tree<A> *TreeBeingCopied)
 {
 	count = 0;
+	level - 0;
 	/// Set pointers to null default
 	leftchild = nullptr;
 	rightchild = nullptr;
@@ -74,6 +76,12 @@ void Tree<A>::PostOrder()
 }
 
 template<typename A>
+void Tree<A>::LevelOrder()
+{
+	LevelOrderHelper(root, PrintNodePointer);
+}
+
+template<typename A>
 void Tree<A>::DeleteTree()
 {
 	PostOrderHelper(root, DeleteTreeHelperPointer);
@@ -90,13 +98,14 @@ void Tree<A>::AddNode(A key, std::function<void(Tree<A>*&)> UserFunction)
 	
 	if (root == NULL)
 	{
-		root = BuildNewNode(key);
+		root = BuildNewNode(key,0);
 		return;
 	}
 	else
 	{
-		// Loop until current falls out of the Tree
-		// then place leaf in the Tree using the trail pointer
+		int nodelevel = 0;
+		/// Loop until current falls out of the Tree
+		/// then place leaf in the Tree using the trail pointer
 		while (current != NULL)
 		{
 			trail = current;
@@ -109,11 +118,14 @@ void Tree<A>::AddNode(A key, std::function<void(Tree<A>*&)> UserFunction)
 				current = current->leftchild;
 			else
 				current = current->rightchild;
-		}// end while to find where to insert leaf
 
-		// Create leaf to insert
-		Tree<A> *leaf = BuildNewNode(key);
-		// Place leaf into the Tree
+			/// Bump node level to record what level the leaf is at
+			nodelevel++;
+		}/// end while to find where to insert leaf
+
+		/// Create leaf to insert
+		Tree<A> *leaf = BuildNewNode(key,nodelevel);
+		/// Place leaf into the Tree
 		if (key < trail->val)
 			trail->leftchild = leaf;
 		if (key > trail->val)
@@ -122,11 +134,12 @@ void Tree<A>::AddNode(A key, std::function<void(Tree<A>*&)> UserFunction)
 }// end AddNode()
 
 template <typename A>
-Tree<A>* Tree<A>::BuildNewNode(A val)
+Tree<A>* Tree<A>::BuildNewNode(A val,int nodelevel)
 {
 	Tree<A> *tp = new Tree<A>;
 	tp->val = val;
 	tp->count = 1;
+	tp->level = nodelevel;
 	tp->rightchild = nullptr;
 	tp->leftchild = nullptr;
 	return tp;
@@ -264,10 +277,35 @@ void Tree<A>::PostOrderHelper(Tree<A> *node, std::function<void(Tree<A>*)> UserF
 }
 
 template<typename A>
+void Tree<A>::LevelOrderHelper(Tree<A> *node, std::function<void(Tree<A>*)> UserFunction)
+{
+	if (node == NULL){
+		cout << "Error:Root is null." << endl;
+		return;
+	}
+	else{
+		queue<Tree<A> *> TreeQ;
+		TreeQ.push(node);
+
+		while (TreeQ.size() != 0)
+		{
+			Tree<A> *FrontNode = TreeQ.front();
+			UserFunction(FrontNode);
+			/// Add any leftchildren
+			if (FrontNode->leftchild != nullptr)
+				TreeQ.push(FrontNode->leftchild);
+			if (FrontNode->rightchild != nullptr)
+				TreeQ.push(FrontNode->rightchild);
+			/// Dequeue node
+			TreeQ.pop();
+		}// end while
+	}// end else	
+}// end LevelOrderHelper()
+
+template<typename A>
 void Tree<A>::PrintNode(Tree<A> *node)
 {
-	if (node->count >= 5)
-	cout << node->val << endl;
+		cout <<"["<< node->val <<"]  [Level:"<<node->level<<"]"<<endl;
 }
 
 template<typename A>
