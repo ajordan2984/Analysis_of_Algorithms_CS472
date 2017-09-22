@@ -3,7 +3,11 @@
 /// Include for std::function class used with function pointers
 #include <functional>
 /// Include for queue used with printing tree levels
+/// and for Breadth First Search
 #include <queue>
+
+/// Include for Depth First Search
+#include<stack>
 
 // Namespace to put in place holders for variables
 // when initializing a std::function object
@@ -21,6 +25,8 @@ public:
 	void PreOrder();
 	void PostOrder();
 	void LevelOrder();
+	Tree<A>* DFS(A);
+	Tree<A>* BFS(A);
 	void DeleteTree();
 
 private:
@@ -33,10 +39,10 @@ private:
 	void PreOrderHelper(Tree<A> *node, std::function<void(Tree<A>*)> UserFunction);
 	void PostOrderHelper(Tree<A> *node, std::function<void(Tree<A>*)> UserFunction);
 	void LevelOrderHelper(Tree<A> *node, std::function<void(Tree<A>*)> UserFunction);
-	void PrintNode(Tree<A> *node);											// Takes a pointer and prints val
-	void DeleteTreeHelper(Tree<A> *node);									// Deletes Tree in Post-Order 
-	void RaiseCount(Tree<A> *&node);										// Raised the count if val already in Tree
-	void InsertExtractValue(Tree<A> *node);									// Gets value from old tree -> new tree
+	void PrintNode(Tree<A> *node);					// Takes a pointer and prints val
+	void DeleteTreeHelper(Tree<A> *node);			// Deletes Tree in Post-Order 
+	void RaiseCount(Tree<A> *&node);				// Raised the count if val already in Tree
+	void InsertExtractValue(Tree<A> *node);			// Gets value from old tree -> new tree
 	~Tree();
 	/// Private Members
 	A val;

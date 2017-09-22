@@ -2,12 +2,11 @@
 #include <string.h>
 #include <iostream>
 #include <fstream>
-//#include "Tree.cpp"
-#include "Tree_Indexer.cpp"
+#include "Tree.cpp"
 using namespace std;
 
 template <typename A>
-void readinvalues(Tree_Indexer<A>*);
+void readinvalues(Tree<A>*);
 //globals
 ifstream in;
 
@@ -15,31 +14,37 @@ ifstream in;
 int main()
 {
 	in.open("dat.txt");
-	Tree_Indexer<string> *treeindex = new Tree_Indexer<string>();
-	readinvalues(treeindex);
-	treeindex->LevelOrder();
-	treeindex->InOrder();
 
-	//Tree<string> *FirstTreePtr = new Tree<string>();
-	//readinvalues(FirstTreePtr);
-	//FirstTreePtr->LevelOrder();
-	//FirstTreePtr->DeleteNode("noted");
-	//
+
+	Tree<string> *FirstTreePtr = new Tree<string>();
+	readinvalues(FirstTreePtr);
+	FirstTreePtr->LevelOrder();
+	FirstTreePtr->DeleteNode("a");
+	
 	//// Create new tree and copy old tree into it
-	//Tree<string> *NewTreePtr = new Tree<string>(FirstTreePtr);
+	
+	Tree<string> *NewTreePtr = new Tree<string>(FirstTreePtr);
 	//NewTreePtr->InOrder();
-	//NewTreePtr->LevelOrder();
-	//
+
+	Tree<string>* foundnode = NewTreePtr->DFS("noted");
+	if (foundnode != nullptr)
+		cout << "Node: noted was found with DFS." << endl;
+
+	foundnode = NewTreePtr->BFS("york");
+	if (foundnode != nullptr)
+		cout << "Node: noted was found with BFS." << endl;
+
+
 	//// Delete Trees
-	//FirstTreePtr->DeleteTree();
-	//NewTreePtr->DeleteTree();
+	FirstTreePtr->DeleteTree();
+	NewTreePtr->DeleteTree();
 	in.close();
 	cout << "Finished." << endl;
 	return 0;
 }
 
 template <typename A>
-void readinvalues(Tree_Indexer<A> *tree)
+void readinvalues(Tree<A> *tree)
 {
 	int count = 0, sz = 0;
 	string s1;
@@ -54,7 +59,7 @@ void readinvalues(Tree_Indexer<A> *tree)
 		}
 
 		if (temp.length() > 0 && temp != "")
-			tree->insert(temp);
+			tree->Insert(temp);
 		temp = "";
 	}
 	return;

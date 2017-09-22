@@ -21,7 +21,7 @@ template <typename A>
 Tree<A>::Tree(Tree<A> *TreeBeingCopied)
 {
 	count = 0;
-	level - 0;
+	level = 0;
 	/// Set pointers to null default
 	leftchild = nullptr;
 	rightchild = nullptr;
@@ -79,6 +79,72 @@ template<typename A>
 void Tree<A>::LevelOrder()
 {
 	LevelOrderHelper(root, PrintNodePointer);
+}
+
+template <typename A>
+Tree<A>* Tree<A>::DFS(A SearchTerm)
+{
+	if (root == NULL){
+		cout << "Error:Root is null." << endl;
+		return nullptr;
+	}
+	else{
+		stack<Tree<A> *> TreeStack;
+		TreeStack.push(root);
+
+		while (TreeStack.size() != 0)
+		{
+			Tree<A> *FrontNode = TreeStack.top();
+			/// Pop off old node
+			TreeStack.pop();
+
+			/// Return Node if found
+			if (FrontNode->val == SearchTerm)
+				return FrontNode;
+
+			/// Add any leftchildren
+			if (FrontNode->leftchild != nullptr)
+				TreeStack.push(FrontNode->leftchild);
+			if (FrontNode->rightchild != nullptr)
+				TreeStack.push(FrontNode->rightchild);
+		}// end while
+	}// end else
+	
+	/// Node not found
+	return nullptr;
+}
+
+template <typename A>
+Tree<A>* Tree<A>::BFS(A SearchTerm)
+{
+	if (root == NULL){
+		cout << "Error:Root is null." << endl;
+		return nullptr;
+	}
+	else{
+		queue<Tree<A> *> TreeQ;
+		TreeQ.push(root);
+
+		while (TreeQ.size() != 0)
+		{
+			Tree<A> *FrontNode = TreeQ.front();
+			
+			/// Return Node if found
+			if (FrontNode->val == SearchTerm)
+				return FrontNode;
+
+			/// Add any leftchildren
+			if (FrontNode->leftchild != nullptr)
+				TreeQ.push(FrontNode->leftchild);
+			if (FrontNode->rightchild != nullptr)
+				TreeQ.push(FrontNode->rightchild);
+			/// Dequeue node
+			TreeQ.pop();
+		}// end while
+	}// end else
+
+	/// Node not found
+	return nullptr;
 }
 
 template<typename A>
